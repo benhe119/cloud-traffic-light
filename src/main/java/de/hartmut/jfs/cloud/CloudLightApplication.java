@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAutoConfiguration
 public class CloudLightApplication {
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     String home() {
         return "Hello World!";
     }
