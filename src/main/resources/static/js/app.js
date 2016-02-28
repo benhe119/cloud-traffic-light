@@ -1,18 +1,21 @@
 var lightApp = angular.module('lightApp', []);
 
-lightApp.controller('LightCtrl', function ($scope) {
+lightApp.controller('LightCtrl', function ($scope, $http, $interval) {
     $scope.lights = {
         'red' : true,
         'yellow' : true,
         'green' : false
     };
 
-    $scope.phones = [
-        {'name': 'Nexus S',
-            'snippet': 'Fast just got faster with Nexus S.'},
-        {'name': 'Motorola XOOM™ with Wi-Fi',
-            'snippet': 'The Next, Next Generation tablet.'},
-        {'name': 'MOTOROLA XOOM™',
-            'snippet': 'The Next, Next Generation tablet.'}
-    ];
+    $scope.getLightState = function() {
+        $http.get('/light')
+            .then(function(response) {
+                $scope.lights = response.data;
+            }
+        )
+    };
+
+    $scope.getLightState();
+
+    $interval($scope.getLightState, 1000);
 });
