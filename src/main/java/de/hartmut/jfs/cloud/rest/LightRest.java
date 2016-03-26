@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LightRest {
     private static final Logger LOG = LoggerFactory.getLogger(LightRest.class);
 
-    private Boolean redState = false;
+    private Boolean redState = true;
     private Boolean yellowState = false;
     private Boolean greenState = false;
 
@@ -35,7 +35,7 @@ public class LightRest {
     @RequestMapping(value = "/light", method = RequestMethod.GET)
     public ResponseEntity<LightState> getLightState() {
 
-        LOG.info("GET /light");
+        LOG.debug("GET /light");
 
         LightState lightState = new LightState();
         lightState.setRed(redState);
