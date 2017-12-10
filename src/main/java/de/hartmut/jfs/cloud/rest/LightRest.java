@@ -5,15 +5,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.BackgroundPreinitializer;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by hartmut on 19.02.16.
  */
-@RestController
+@RestController("/light")
 public class LightRest {
     private static final Logger LOG = LoggerFactory.getLogger(LightRest.class);
 
@@ -21,7 +18,7 @@ public class LightRest {
     private Boolean yellowState = false;
     private Boolean greenState = false;
 
-    @RequestMapping(value = "/light", method = RequestMethod.PUT)
+    @PutMapping
     public void lightUpdate(@RequestParam(value="red") String red,
                             @RequestParam(value="yellow") String yellow,
                             @RequestParam(value="green") String green) {
@@ -32,7 +29,7 @@ public class LightRest {
         greenState = "on".equalsIgnoreCase(green);
     }
 
-    @RequestMapping(value = "/light", method = RequestMethod.GET)
+    @GetMapping
     public ResponseEntity<LightState> getLightState() {
 
         LOG.debug("GET /light");
