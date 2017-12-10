@@ -10,15 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by hartmut on 13.02.16.
  */
 @SpringBootApplication
-@RestController
 public class CloudLightApplication {
 
-    @RequestMapping("/hello")
-    String home() {
-        return "Hello World!";
-    }
-
-    public static void main(String[] args) throws Exception {
+   public static void main(String[] args) throws Exception {
         SpringApplication.run(CloudLightApplication.class, args);
     }
 
