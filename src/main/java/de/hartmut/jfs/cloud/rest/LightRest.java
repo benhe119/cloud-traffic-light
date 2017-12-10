@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Created by hartmut on 19.02.16.
  */
-@RestController("/light")
+@RestController
+@RequestMapping("/light")
 public class LightRest {
     private static final Logger LOG = LoggerFactory.getLogger(LightRest.class);
 
