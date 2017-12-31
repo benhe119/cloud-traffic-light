@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Get Ready</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="angular/angular.min.js" type="text/javascript"></script>
     <script src="js/app.js" type="text/javascript"></script>
@@ -33,6 +34,9 @@
             <img src="traffic-lights-caution.png" alt="stop" class="img-rounded"
                  ng-click="nextLightState()" />
         </div>
+    </div>
+    <div class="text-center" style="font-family: 'Roboto Mono', monospace;">
+        <h2>{{lights.count}}</h2>
     </div>
 </body>
 </html>

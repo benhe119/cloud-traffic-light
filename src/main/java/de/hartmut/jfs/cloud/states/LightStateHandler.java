@@ -24,6 +24,7 @@ public class LightStateHandler {
         lightState.setRed(true);
         lightState.setYellow(false);
         lightState.setGreen(false);
+        lightState.setCount(0);
     }
 
     public LightState getLightState() {
@@ -40,6 +41,7 @@ public class LightStateHandler {
         lightState.setRed(true);
         lightState.setYellow(false);
         lightState.setGreen(false);
+        incrementCount();
     }
 
     @OnTransition(target = "READY")
@@ -48,7 +50,7 @@ public class LightStateHandler {
         lightState.setRed(true);
         lightState.setYellow(true);
         lightState.setGreen(false);
-
+        incrementCount();
     }
 
     @OnTransition(target = "GO")
@@ -57,7 +59,7 @@ public class LightStateHandler {
         lightState.setRed(false);
         lightState.setYellow(false);
         lightState.setGreen(true);
-
+        incrementCount();
     }
 
     @OnTransition(target = "CAUTION")
@@ -66,6 +68,10 @@ public class LightStateHandler {
         lightState.setRed(false);
         lightState.setYellow(true);
         lightState.setGreen(false);
+        incrementCount();
+    }
 
+    private void incrementCount() {
+        lightState.setCount(lightState.getCount()+1);
     }
 }

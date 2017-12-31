@@ -4,7 +4,8 @@ lightApp.controller('LightCtrl', function ($scope, $http, $interval) {
     $scope.lights = {
         'red': true,
         'yellow': true,
-        'green': false
+        'green': false,
+        'count': 0
     };
 
     $scope.getLightState = function () {

@@ -7,6 +7,7 @@ public class LightState {
     boolean red;
     boolean yellow;
     boolean green;
+    long count = 0L;
 
     public boolean isRed() {
         return red;
@@ -30,5 +31,13 @@ public class LightState {
 
     public void setGreen(boolean green) {
         this.green = green;
+    }
+
+    public long getCount() {
+        return count;
+    }
+
+    public void setCount(long count) {
+        this.count = count;
     }
 }
